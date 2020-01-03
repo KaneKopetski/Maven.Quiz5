@@ -4,14 +4,20 @@ package rocks.zipcode.io.quiz4.objectorientation;
  * @author leon on 11/12/2018.
  */
 public class StringAssembler {
-    public StringAssembler(Character delimeter) {
+    private Character delimiter;
+    private StringBuilder stringBuilder;
+
+    public StringAssembler(Character delimiter) {
+        this.delimiter = delimiter;
+        stringBuilder = new StringBuilder();
     }
 
     public StringAssembler append(String str) {
-        return null;
+        stringBuilder.append(str).append(delimiter);
+        return this;
     }
 
     public String assemble() {
-        return null;
+        return stringBuilder.deleteCharAt(stringBuilder.lastIndexOf("" + delimiter)).toString();
     }
 }
